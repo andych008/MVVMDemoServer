@@ -14,8 +14,15 @@ class DatabaseSeeder extends Seeder
     {
         Model::unguard();
 
-        // $this->call(UserTableSeeder::class);
+         $this->call(CardSeeder::class);
 
         Model::reguard();
     }
+
+    /*
+     *
+     * php artisan db:seed
+     * php artisan db:seed --class=CardSeeder
+     *
+     **/
 }

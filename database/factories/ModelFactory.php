@@ -19,3 +19,27 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->defineAs(App\Card::class, 'female', function (Faker\Generator $faker) {
+    return [
+        'first_name' => $faker->firstNameFemale,
+        'last_name' => $faker->lastName,
+        'gender' => 0,
+        'age' => $faker->numberBetween(19, 45),
+        'height' => $faker->numberBetween(155, 175),
+        'weight' => $faker->numberBetween(45, 55),
+        'head_url' => $faker->imageUrl(128, 128)
+    ];
+});
+
+$factory->defineAs(App\Card::class, 'male', function (Faker\Generator $faker) {
+    return [
+        'first_name' => $faker->firstNameMale,
+        'last_name' => $faker->lastName,
+        'gender' => 1,
+        'age' => $faker->numberBetween(23, 80),
+        'height' => $faker->numberBetween(168, 185),
+        'weight' => $faker->numberBetween(50, 80),
+        'head_url' => $faker->imageUrl(128, 128)
+    ];
+});

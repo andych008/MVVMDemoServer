@@ -11,15 +11,18 @@ $router->get('hello', function () {
 $router->post('auth/login', 'AuthenticateController@authenticate');
 $router->post('auth/register', 'AuthenticateController@register');
 
-$router->group(['middleware' => 'guest'], function ($router) {
-    $router->get('cards/hello', 'CardController@hello');
-});
-
+$router->get('cards/hello', 'CardController@hello');
+$router->resource('cards', 'CardController');
 
 $router->group(['middleware' => ['jwt.auth'/*, 'jwt.refresh'*/]], function ($router) {
     $router->get('user/me', 'AuthenticateController@getAuthenticatedUser');
-    $router->resource('cards', 'CardController');
+
 });
+
+$router->group(['middleware' => 'guest'], function ($router) {
+});
+
+
 
 
 
