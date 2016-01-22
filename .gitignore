@@ -1,0 +1,17 @@
+.DS_Store
+/vendor
+/node_modules
+Homestead.yaml
+Homestead.json
+composer.phar
+.env
+/.idea
+/bootstrap/compiled.php
+/build/logs
+/build/coverage
+/app/tests/_log
+/app/config/packages
+/public/packages
+_ide_helper.php
+
+
